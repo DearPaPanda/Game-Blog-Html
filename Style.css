@@ -1,0 +1,587 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body{ 
+	margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url("assets/Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #ffffff;
+	width: 100%;
+	height: 100%;
+}
+.header{
+	width: auto;
+	height: 135px;
+}
+
+
+
+#anaBaslik {
+    color: whitesmoke;
+    font-size: 3rem;
+	width: 900px;
+	height: 90px;
+	align-content: center;
+	padding-top: 30px;
+	padding-left: 40px;
+}
+/* başlık için animasyon*/
+.reveal {
+  color: transparent;
+  background: linear-gradient(#ffffff 0 0) no-repeat;
+  background-size: 0% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: revealText 1.5s ease forwards;
+}
+
+@keyframes revealText {
+  to { background-size: 100% 100%; }
+}
+
+/* nav menüsü sticky özelliği var*/
+nav{
+	width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(6px);
+}
+nav ul{
+	display: flex;
+	margin: 0;
+	padding: 0 100px;
+	float: middle;
+}
+nav ul li{
+	list-style: none;
+}
+nav ul li a{
+	display: block;
+	color: #ffff;
+	padding:0 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 50px;
+}
+nav ul li a:hover,
+nav ul li a.active{
+	background: #182F53;
+}
+/*Login menüsünün popup kısmı*/
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+}
+
+
+.popup:target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.popup-content {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    color: #fff;
+    position: relative;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #fff;
+}
+
+
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.popup-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00adb5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.title {
+    text-align: left;
+	padding-left: 30px;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+
+}
+.sidebar {
+  position: absolute;
+  right: 30px;
+  top: 100px;
+  width: 200px;
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+	margin-top: 100px;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.9rem;
+	
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.sidebar img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.03);
+}
+.rain-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.2; 
+    mix-blend-mode: screen; 
+	
+}
+
+.rain-effect::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    height: 300%;
+    background: url("assets/rain2.gif") repeat;
+    background-size: 10vw 20vw;
+    animation: rain 1.5s linear infinite;
+	filter: brightness(1.2) contrast(1.1);
+
+}
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: left;
+	padding-left: 40px;
+}
+
+.game-card {
+      background-color: rgba(30, 30, 30, 0.95); 
+    border-radius: 15px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 700px;
+    transition: transform 0.2s ease;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	z-index: 1;
+}
+
+.game-card:hover {
+    transform: scale(1.1) translateX(85px);
+}
+
+.game-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.game-info {
+    padding: 15px;
+}
+
+.game-info h2 {
+    margin: 0 0 10px;
+    font-size: 1.6rem;
+    color: #ffd369;
+}
+
+.game-info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #d3d3d3;
+}
+*
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+#wrap
+{
+	width: 100%;
+	height: 50%;
+	position: relative;
+	margin: 0 auto 0 auto;
+	overflow: hidden;
+}
+
+#lightings
+{
+	bottom: -60px;
+	position: absolute;
+	width: 100%;
+}
+
+
+section
+{
+	
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	height: 20px;
+	width: 100%;
+	position: relative;
+	margin: auto;
+
+}
+
+#one
+{
+	/*animation*/
+	-webkit-animation: one 5s ease-in-out infinite alternate;
+	-moz-animation: one 5s ease-in-out infinite alternate;
+	-ms-animation: one 5s ease-in-out infinite alternate;
+	-o-animation: one 5s ease-in-out infinite alternate;
+	animation: one 5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes 
+one { from {
+-webkit-box-shadow: 0 0 250px 20px #473C78;
+}
+
+to { -webkit-box-shadow: 0 0 100px 15px #F72A3B; }
+}
+@-moz-keyframes 
+one { from {
+-moz-box-shadow: 0 0 250px 20px #473C78;
+}
+
+to { -moz-box-shadow: 0 0 100px 15px #F72A3B; }
+}
+@-o-keyframes 
+one { from {
+-o-box-shadow: 0 0 250px 20px #473C78;
+}
+
+to { -o-box-shadow: 0 0 100px 15px #F72A3B; }
+}
+
+@keyframes 
+one { from {
+box-shadow: 0 0 250px 20px #473C78;
+}
+
+to {box-shadow: 0 0 100px 15px #F72A3B; }
+}
+
+#two
+{
+	width: 90%;
+	/*animation*/
+	-webkit-animation: two 4s ease-in-out infinite alternate;
+	-moz-animation: two 4s ease-in-out infinite alternate;
+	-ms-animation: two 4s ease-in-out infinite alternate;
+	-o-animation: two 4s ease-in-out infinite alternate;
+	animation: two 4s ease-in-out infinite alternate;
+}
+@-webkit-keyframes 
+two { from {
+-webkit-box-shadow: 0 0 250px 20px #18C499;
+}
+
+to { -webkit-box-shadow: 0 0 100px 15px #D8F05E; }
+}
+@-moz-keyframes 
+two { from {
+-moz-box-shadow: 0 0 250px 20px #18C499;
+}
+
+to { -moz-box-shadow: 0 0 100px 15px #D8F05E; }
+}
+@-o-keyframes 
+two { from {
+-o-box-shadow: 0 0 250px 20px #18C499;
+}
+
+to { -o-box-shadow: 0 0 100px 15px #D8F05E; }
+}
+
+@keyframes 
+two { from {
+box-shadow: 0 0 250px 20px #18C499;
+}
+
+to { box-shadow: 0 0 100px 15px #D8F05E; }
+}
+
+#three
+{
+	width: 80%;
+	/*animation*/
+	-webkit-animation: three 3s ease-in-out infinite alternate;
+	-moz-animation: three 3s ease-in-out infinite alternate;
+	-ms-animation: three 3s ease-in-out infinite alternate;
+	-o-animation: three 3s ease-in-out infinite alternate;
+	animation: three 3s ease-in-out infinite alternate;
+}
+@-webkit-keyframes 
+three { from {
+-webkit-box-shadow: 0 0 250px 20px #FFDD00;
+}
+
+to { -webkit-box-shadow: 0 0 100px 15px #3E33FF; }
+}
+@-moz-keyframes 
+three { from {
+-moz-box-shadow: 0 0 250px 20px #FFDD00;
+}
+
+to { -moz-box-shadow: 0 0 100px 15px #3E33FF }
+}
+@-o-keyframes 
+three { from {
+-o-box-shadow: 0 0 250px 20px #FFDD00;
+}
+
+to { -o-box-shadow: 0 0 100px 15px #3E33FF }
+}
+
+@keyframes 
+three { from {
+box-shadow: 0 0 250px 20px #FFDD00;
+}
+
+to { box-shadow: 0 0 100px 15px #3E33FF }
+}
+
+#four
+{
+	width: 70%;
+	/*animation*/
+	-webkit-animation: four 2s ease-in-out infinite alternate;
+	-moz-animation: four 2s ease-in-out infinite alternate;
+	-ms-animation: four 2s ease-in-out infinite alternate;
+	-o-animation: four 2s ease-in-out infinite alternate;
+	animation: four 2s ease-in-out infinite alternate;
+}
+@-webkit-keyframes 
+four { from {
+-webkit-box-shadow: 0 0 250px 20px #781848;
+}
+
+to { -webkit-box-shadow: 0 0 100px 15px #F2BBE9; }
+}
+@-moz-keyframes 
+four { from {
+-moz-box-shadow: 0 0 250px 20px #781848;
+}
+
+to { -moz-box-shadow: 0 0 100px 15px #F2BBE9; }
+}
+@-o-keyframes 
+four { from {
+-o-box-shadow: 0 0 250px 20px #781848;
+}
+
+to { -o-box-shadow: 0 0 100px 15px #F2BBE9; }
+}
+
+@keyframes 
+four { from {
+shadow: 0 0 250px 20px #781848;
+}
+
+to { shadow: 0 0 100px 15px #F2BBE9; }
+}
+
+#five
+{
+	width: 60%;
+	/*animation*/
+	-webkit-animation: five 1s ease-in-out infinite alternate;
+	-moz-animation: five 1s ease-in-out infinite alternate;
+	-ms-animation: five 1s ease-in-out infinite alternate;
+	-o-animation: five 1s ease-in-out infinite alternate;
+	animation: five 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes 
+five { from {
+-webkit-box-shadow: 0 0 250px 20px #42F2A1;
+}
+
+to { -webkit-box-shadow: 0 0 100px 15px #F4F6AD; }
+}
+@-moz-keyframes 
+five { from {
+-moz-box-shadow: 0 0 250px 20px #42F2A1;
+}
+
+to { -moz-box-shadow: 0 0 100px 15px #F4F6AD; }
+}
+@-o-keyframes 
+five { from {
+-o-box-shadow: 0 0 250px 20px #42F2A1;
+}
+
+to { -o-box-shadow: 0 0 100px 15px #F4F6AD; }
+}
+
+@keyframes 
+five { from {
+box-shadow: 0 0 250px 20px #42F2A1;
+}
+
+to { box-shadow: 0 0 100px 15px #F4F6AD; }
+}
+.site-footer {
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 20px 0;
+  color: white;
+  position: relative;
+  z-index: 10;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+	margin-bottom: 23px;
+
+}
+
+.footer-icons {
+  margin-bottom: 10px;
+}
+
+.footer-icons img {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+  opacity: 0.5;
+  transition: transform 0.3s ease;
+}
+
+.footer-icons img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  #anaBaslik {
+    font-size: 2rem;
+    width: auto;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  .game-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+  }
+
+  .game-card {
+    transform: none !important;
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .sidebar li {
+    justify-content: center;
+  }
+
+  .popup-content {
+    width: 90%;
+  }
+
+  .site-footer {
+    font-size: 0.8rem;
+  }
+
+  .footer-icons img {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav ul li a {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+
+  #anaBaslik {
+    font-size: 1.6rem;
+  }
+
+  .popup-content {
+    padding: 20px;
+  }
+
+  .footer-icons img {
+    width: 18px;
+    height: 18px;
+  }
+}
